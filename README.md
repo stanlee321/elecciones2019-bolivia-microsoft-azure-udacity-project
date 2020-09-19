@@ -223,3 +223,7 @@ image,count_value, user_id
 
 
 which later can be processed with pandas for further analysis.
+
+## Conclusions
+
+With this work we wanted to demonstrate the proof of concept that it is possible to automatically read the digits written by hand within physical electoral records. The procedure ranges from using simple computer vision techniques to exploring the possibility of creating an object detector using deep learning. The latter needs more work and it is hoped that this can be achieved. We also leave open the possibility of using this dataset for other types of work that can be done on top of the images that are available.
