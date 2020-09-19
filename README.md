@@ -78,4 +78,25 @@ The result is  a set if croped images in `VOC_CREATION/results/Train/images` and
 <div style="text-align:center"><img src ="https://raw.githubusercontent.com/stanlee321/elecciones2019-bolivia-microsoft-azure-udacity-project/master/VOC_CREATION/dataset_voc_train.png" /></div>
 
 A sample with bounding boxes drawing this this.
-<div style="text-align:center"><img src ="https://raw.githubusercontent.com/stanlee321/elecciones2019-bolivia-microsoft-azure-udacity-project/master/VOC_CREATION/fff888b3-f7d0-11e9-800f-c8ff28027534.png" /></div>
+<div style="text-align:center"><img src ="https://raw.githubusercontent.com/stanlee321/elecciones2019-bolivia-microsoft-azure-udacity-project/master/VOC_CREATION/1da06fc2-f7de-11e9-b23f-c8ff28027534.jpg" /></div>
+
+
+
+The total success of detected boxes with the simple computer vision algorithm is aprox. `~(21000/31000 )*100  ~= 68 %`.
+We made a try to fine tune a object detection model for increase this number and read more electoral papers.
+
+### Attempt to finetune SSD MobilenetV2 with this VOC dataset.
+
+For fast iteration around this problem we use the MONK `https://github.com/Tessellate-Imaging/Monk_Object_Detection` library for retrain object detection models. The fork of his notebook called `Train Without Validation Dataset.ipynb` is in our folder called `OBJECT_DETECTION/Train_Without_Validation_Dataset.ipynb`.
+We had a problem with our credit card and we are unnable to open an azure account and train the model inside azure compute instances. For this reason we made use of google colab, we use a lot of GPU VRAM for finetune the mobilenetv2 model. The result of this finetuning is .
+
+<div style="text-align:center"><img src ="https://raw.githubusercontent.com/stanlee321/elecciones2019-bolivia-microsoft-azure-udacity-project/master/OBJECT_DETECTION/result_object_detection.jpeg" /></div>
+
+We think that the MONK library is not resizing correctly our image in this high level interface
+
+We have not enought time for test the native tensorflow object detection library, by this reason we leave this apprach for get to work the remaining 32% of the images.
+
+## Count of votes.
+
+Since we labeled our Regions of Interest, we can start to count the numbers inside the boxes.
+
