@@ -1,3 +1,6 @@
 dataset_creation
 full_dataset
 cuda_env
+bbox_model
+images
+results

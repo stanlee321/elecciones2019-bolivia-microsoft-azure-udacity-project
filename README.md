@@ -5,28 +5,28 @@ The intention of this work is to automate the counting of votes in the electoral
 
 ## Download the dataset.
 
-To download the dataset of the images, the jupyter notebook called `Download_images_azure.ipynb` is used. This notebook downloads the 60 GB of information, whose categories are the following.
+To download the dataset of the images, the jupyter notebook called `DOWNLOAD_DATASET/Download_images_azure.ipynb` is used. This notebook downloads the 60 GB of information, whose categories are the following.
 
 ### uploadedimages
 
 This images comes from a direct photo from a smartphone taked the moment where the operator in charge of the elections table must to send this report for fast counts called "TREP"
 
 
-<div style="text-align:center"><img src ="https://raw.githubusercontent.com/stanlee321/elecciones2019-bolivia-microsoft-azure-udacity-project/master/dataset_uploadedimages.png" /></div>
+<div style="text-align:center"><img src ="https://raw.githubusercontent.com/stanlee321/elecciones2019-bolivia-microsoft-azure-udacity-project/master/DOWNLOAD_DATASET/dataset_uploadedimages.png" /></div>
 
 
 ### uploadedimagescomputo
 
 This images are the same from `uploadedimages`(TREP) but are been scanned. We take this set of images (~30GB)  for our Computer Vision work pipeline.
 
-<div style="text-align:center"><img src ="https://raw.githubusercontent.com/stanlee321/elecciones2019-bolivia-microsoft-azure-udacity-project/master/dataset_uploadedimagescomputo.png" /></div>
+<div style="text-align:center"><img src ="https://raw.githubusercontent.com/stanlee321/elecciones2019-bolivia-microsoft-azure-udacity-project/master/DOWNLOAD_DATASET/dataset_uploadedimagescomputo.png" /></div>
 
 
 ### imgactastrep
 
 This set of images are been flaged as **fraudulent** by the original team that work with this images the last year, this set of images comes from the `uploadedimages` set.
 
-<div style="text-align:center"><img src ="https://raw.githubusercontent.com/stanlee321/elecciones2019-bolivia-microsoft-azure-udacity-project/master/dataset_imgactastrep.png" /></div>
+<div style="text-align:center"><img src ="https://raw.githubusercontent.com/stanlee321/elecciones2019-bolivia-microsoft-azure-udacity-project/master/DOWNLOAD_DATASET/dataset_imgactastrep.png" /></div>
 
 
 ## Create VOC like dataset.
@@ -37,23 +37,45 @@ This set of images are been flaged as **fraudulent** by the original team that w
 We take the `uploadedimagescomputo` set of images since this are more easy to work with Computer Vision techniques.
 One example of this dataset set is this image.
 
-<div style="text-align:center"><img src ="https://raw.githubusercontent.com/stanlee321/elecciones2019-bolivia-microsoft-azure-udacity-project/master/102051.jpg" /></div>
+<div style="text-align:center"><img src ="https://raw.githubusercontent.com/stanlee321/elecciones2019-bolivia-microsoft-azure-udacity-project/master/DOWNLOAD_DATASET/102051.jpg" /></div>
 
 Using Canny edge detection and other simple computer vision techinques we can start to get some detection of the areas of interest.
 
 
-<div style="text-align:center"><img src ="https://raw.githubusercontent.com/stanlee321/elecciones2019-bolivia-microsoft-azure-udacity-project/master/h_res3" /></div>
+<div style="text-align:center"><img src ="https://raw.githubusercontent.com/stanlee321/elecciones2019-bolivia-microsoft-azure-udacity-project/master/DOWNLOAD_DATASET/h_res3.png" /></div>
 
 
 Into this image we are only interested in  detecting this region of the image.
 
-<div style="text-align:center"><img src ="https://raw.githubusercontent.com/stanlee321/elecciones2019-bolivia-microsoft-azure-udacity-project/master/fff888b3-f7d0-11e9-800f-c8ff28027534.jpg
+<div style="text-align:center"><img src ="https://raw.githubusercontent.com/stanlee321/elecciones2019-bolivia-microsoft-azure-udacity-project/master/DOWNLOAD_DATASET/fff888b3-f7d0-11e9-800f-c8ff28027534.jpg
 " /></div>
 
 
 Other parts of the image also can be used for another kind of applications, like "fingerprint" maching across the whole dataset or  read and detect duplicate names in the region of people in charge of the election table.
 
+This time we are only interested in counting the votes in this selected Region of Interest.
+
+###  Creation of VOC Like dataset
 
 
+For create this dataset we create all the steps for this into the file `VOC_CREATION/bounding_boxes_creation.py`.
 
-For sta
+With a simple.
+
+```terminal
+
+cd VOC_CREATION
+
+python bounding_boxes_creation.py --data_path=$UPLOADED_IMAGES_COMPUTO
+```
+
+Will start to create the dataset, into a default folder called `results/`.
+
+We made use of an env variable `$UPLOADED_IMAGES_COMPUTO` for set the directory of the target images.
+
+The result is  a set if croped images in `VOC_CREATION/results/Train/images` and his  XML labels  `VOC_CREATION/results/Train/labels`. ~21000 in total.
+
+<div style="text-align:center"><img src ="https://raw.githubusercontent.com/stanlee321/elecciones2019-bolivia-microsoft-azure-udacity-project/master/VOC_CREATION/dataset_voc_train.png" /></div>
+
+A sample with bounding boxes drawing this this.
+<div style="text-align:center"><img src ="https://raw.githubusercontent.com/stanlee321/elecciones2019-bolivia-microsoft-azure-udacity-project/master/VOC_CREATION/fff888b3-f7d0-11e9-800f-c8ff28027534.png" /></div>
