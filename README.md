@@ -87,6 +87,12 @@ We made a try to fine tune a object detection model for increase this number and
 
 ### Attempt to finetune SSD MobilenetV2 with this VOC dataset.
 
+### Create TF-RECORDS FILE
+
+We convert to tf-records format our VOC dataset using the script in `VOC_CREATION/create_tf_records.py`
+
+### Retrain the model
+
 For fast iteration around this problem we use the MONK `https://github.com/Tessellate-Imaging/Monk_Object_Detection` library for retrain object detection models. The fork of his notebook called `Train Without Validation Dataset.ipynb` is in our folder called `OBJECT_DETECTION/Train_Without_Validation_Dataset.ipynb`.
 We had a problem with our credit card and we are unnable to open an azure account and train the model inside azure compute instances. For this reason we made use of google colab, we use a lot of GPU VRAM for finetune the mobilenetv2 model. The result of this finetuning is .
 
@@ -101,4 +107,5 @@ We have not enought time for test the native tensorflow object detection library
 Since we labeled our Regions of Interest, we can start to count the numbers inside the boxes with another bit of work of computer vision.
 
 
+WORK IN PROGRES...
 

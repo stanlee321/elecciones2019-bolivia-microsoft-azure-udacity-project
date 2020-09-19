@@ -36,7 +36,8 @@ class ImageHanlder:
         self.name_map               = {"22": "CC", "14": "MAS"}
 
         self.cut_numbers=cut_numbers
-        # Instantiate mnist model
+
+        # Instance of MNIST model
         self.model = MyModel()
 
         # Bounding rectangles placholder
@@ -216,17 +217,6 @@ class ImageHanlder:
                 out_index = index_or + 1
                 partido_id = str(out_index)
 
-                # point  = b[0]
-
-                # h,w,c = image.shape
-                # half_x = w / 2
-
-                # if (int(partido_id) in [2,4,6,8,10,12,14,16,18,20, 22, 24]) and ( point[0] < half_x):
-
-                #     out_index -= 1
-
-                # if (int(partido_id) in [1,3,5,7,9,11,13,15,17,19, 21, 23]) and ( point[0] > half_x):
-                #     out_index += 1
 
                 outputs.append({out_index: b})
         else:
