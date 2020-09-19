@@ -4,3 +4,4 @@ cuda_env
 bbox_model
 images
 results
+validation
