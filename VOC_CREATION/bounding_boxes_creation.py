@@ -24,8 +24,6 @@ class ImageHanlder:
         # Bounding rectangles placholder
         self.outputs = []
 
-        # For handle the data 
-        self.data_handler = []
 
         # Placholder for the partidos.
         self.partidos_todos = []
@@ -218,7 +216,8 @@ class ImageHanlder:
 
         
         # If all the rectanguler boxes was found.
-        thresh = ((len(boxes) >= 20 ) and (len(boxes) <= 24))
+        #thresh = ((len(boxes) >= 20 ) and (len(boxes) <= 24))
+        thresh = len(boxes) == 24
 
         if thresh :
             # print("size",size)
@@ -286,12 +285,13 @@ class ImageHanlder:
                                 n_p1 = (p1[0] + 310, p1[1])
                                 n_p2 = (p2[0] + 215, p2[1])
 
-                            
+                            # Names
                             xmin = p1[0] 
                             ymin = p1[1] 
                             xmax = p2[0] 
                             ymax = p2[1]
 
+                            # Results
                             xmin_n = n_p1[0] 
                             ymin_n = n_p1[1] 
 
@@ -300,15 +300,19 @@ class ImageHanlder:
 
 
                             # ::addObject(name, xmin, ymin, xmax, ymax)
+                            # Get names labels
                             label = self.name_maping[int(partido_key_id)]
+
+                            # Get Names results lables
                             label_n = self.name_maping_results[int(partido_key_id+24)]
                             
-
+                            
+                            # Write coordinates For Names
 
                             _writer.addObject(label, xmin, ymin, 
                                                     xmax, ymax)
 
-                            #  Results Sid
+                            # Write coordinates for  Results
                             _writer.addObject(label_n, xmin_n, ymin_n, 
                                                     xmax_n, ymax_n)
 
@@ -340,7 +344,10 @@ class ImageHanlder:
                                         fontColor,
                                         lineType)
 
+                                # Draw names
                                 cv2.rectangle(cont_img, p1, p2, (0, 255, 0), thickness=2)
+
+                                # Draw Results
                                 cv2.rectangle(cont_img,  p1_n , p2_n, (0, 255, 0), thickness=2)
 
                             

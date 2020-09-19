@@ -26,7 +26,11 @@ class ValidosAndOthers:
 
 
 class ImageHanlder:
-    def __init__(self, cut_numbers=True, draw_results=False, all_boxes=True, draw_rects=False, fixed=False):
+    def __init__(self, cut_numbers=True, draw_results=False, all_boxes=True, draw_rects=False):
+        # If draw results
+        self.draw_results = draw_results
+
+
         self.font                   = cv2.FONT_HERSHEY_SIMPLEX
         self.fontScale              = 1
         self.fontColor              = (255,0,255)
@@ -40,18 +44,12 @@ class ImageHanlder:
         # Instance of MNIST model
         self.model = MyModel()
 
-        # Bounding rectangles placholder
-        self.outputs = []
-
         # For handle the data 
         self.data_handler = []
 
         # Placholder for the partidos.
         self.partidos_todos = []
         self.partidos = []
-
-        # If draw results
-        self.draw_results = draw_results
 
         # If you only want to filter CC and MAS
         self.all_boxes = all_boxes
@@ -444,7 +442,6 @@ if __name__ == "__main__":
     parser.add_argument('--draw_results', type=bool,default=True, help='Input dir for videos')
     parser.add_argument('--all_boxes', type=bool, default=True, help='Output dir for image')
     
-    parser.add_argument("--fixes", type=str, default="", help="If you are augmenting the fixed data list" )
     
     args = parser.parse_args()
 
@@ -457,22 +454,12 @@ if __name__ == "__main__":
     
     fixed_list_path = args.fixes
 
-    if fixed_list_path != "":
-        fixed_list = load_fixed_data(fixed_list_path)
-    else:
-        fixed_list = []
+    # Images lists...
+    images_list = glob.glob(f"{images_path}*.jpg")
 
-    if (len(fixed_list) > 0):
-        images_list = fixed_list
-        fixed = True
-
-    else:
-        # Images lists...
-        images_list = glob.glob(f"{images_path}*.jpg")
-
-    image_hanlder = ImageHanlder(cut_numbers=False, # For custom mnist dataset creation
-                                draw_results=True,  # Draw the actas with the result drawed on it
-                                all_boxes=all_boxes,     # Just find CC and MAS or all
+    image_hanlder = ImageHanlder(cut_numbers=False,     # For custom mnist dataset creation
+                                draw_results=True,      # Draw the actas with the result drawed on it
+                                all_boxes=all_boxes,    # Just find CC and MAS or all
                                 draw_rects=False,
                                 fixed=fixed
                                 ) 

@@ -106,6 +106,120 @@ We have not enought time for test the native tensorflow object detection library
 
 Since we labeled our Regions of Interest, we can start to count the numbers inside the boxes with another bit of work of computer vision.
 
+We only take a sample of 5 images for proof the concept.
 
-WORK IN PROGRES...
+We create the instance `VotesCounter(ImageHanlder)` inside of the `VOTES_COUNTER` folder, this instance expects some MNIST model for read the manuscrite digits. We deploy a custom MNIST in our local server, we also can use any other model for read MNIST the digits inside the images.
+We also can create other datasets by the side only of the digis. We will explore this alternative later.
+For now we obtain the followinig results.
 
+<div style="text-align:center"><img src ="https://raw.githubusercontent.com/stanlee321/elecciones2019-bolivia-microsoft-azure-udacity-project/master/VOTES_COUNTER/counted_votes_collage.png" /></div>
+
+
+
+<div style="text-align:center"><img src ="https://raw.githubusercontent.com/stanlee321/elecciones2019-bolivia-microsoft-azure-udacity-project/master/VOTES_COUNTER/results/counts/00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg" /></div>
+
+And the log for the count into the `VOTES_COUNTER/results/results_log.txt`
+
+```csv
+image,count_value, user_id
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,004,1 
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,005,2 
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,001,3 
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,023,4 
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,204,5 
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,181,6 
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,000,7 
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,000,8 
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,000,9 
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,004,10 
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,032,11 
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,026,12 
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,001,13 
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,007,14 
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,102,15 
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,078,16 
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,002,17 
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,008,18 
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,009,19 
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,011,20 
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,001,21 
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,003,22 
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,057,23 
+00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg,044,24 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,004,1 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,004,2 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,000,3 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,013,4 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,199,5 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,186,6 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,000,7 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,000,8 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,003,9 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,007,10 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,005,11 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,004,12 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,014,13 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,073,14 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,027,15 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,024,16 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,001,17 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,004,18 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,000,19 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,002,20 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,000,21 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,000,22 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,149,23 
+00151e8d-f7dd-11e9-b71f-c8ff28027534.jpg,072,24 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,028,1 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,027,2 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,001,3 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,019,4 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,202,5 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,185,6 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,000,7 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,000,8 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,000,9 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,000,10 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,011,11 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,004,12 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,006,13 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,044,14 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,032,15 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,025,16 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,002,17 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,014,18 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,000,19 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,001,20 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,000,21 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,000,22 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,097,23 
+011e2371-f7e3-11e9-8f53-c8ff28027534.jpg,097,24 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,007,1 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,005,2 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,001,3 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,032,4 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,169,5 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,140,6 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,003,7 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,000,8 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,001,9 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,001,10 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,033,11 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,024,12 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,000,13 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,004,14 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,086,15 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,065,16 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,000,17 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,009,18 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,007,19 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,003,20 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,000,21 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,004,22 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,039,23 
+012c5403-f7ce-11e9-b2ea-c8ff28027534.jpg,030,24 
+
+```
+
+
+which later can be processed with pandas for further analysis.
