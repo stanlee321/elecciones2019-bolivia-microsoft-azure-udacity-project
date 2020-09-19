@@ -94,9 +94,11 @@ We had a problem with our credit card and we are unnable to open an azure accoun
 
 We think that the MONK library is not resizing correctly our image in this high level interface
 
-We have not enought time for test the native tensorflow object detection library, by this reason we leave this apprach for get to work the remaining 32% of the images.
+We have not enought time for test the native tensorflow object detection library or another models, by this reason we leave this approach for get to work the remaining 32% of the images.
 
 ## Count of votes.
 
-Since we labeled our Regions of Interest, we can start to count the numbers inside the boxes.
+Since we labeled our Regions of Interest, we can start to count the numbers inside the boxes with another bit of work of computer vision.
+
+
 
