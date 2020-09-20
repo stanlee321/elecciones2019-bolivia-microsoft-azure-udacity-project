@@ -108,9 +108,9 @@ Since we labeled our Regions of Interest, we can start to count the numbers insi
 
 We only take a sample of 5 images for proof the concept.
 
-We create the instance `VotesCounter(ImageHanlder)` inside of the `VOTES_COUNTER` folder, this instance expects some MNIST model for read the manuscrite digits. We deploy a custom MNIST in our local server, we also can use any other model for read MNIST the digits inside the images.
-We also can create other datasets by the side only of the digis. We will explore this alternative later.
-For now we obtain the followinig results.
+We create the instance `VotesCounter(ImageHanlder)` inside of the `VOTES_COUNTER/votes_counter.py` script, this instance expects some MNIST model for read the digits. We deploy a custom MNIST in our local server, we also can use any other model for read digits inside this images.
+
+We explore the possibility to create other datasets by the side only of the digis inside this images. We will explore this alternative later. For now we obtain the followinig results with this simple MNIST.
 
 <div style="text-align:center"><img src ="https://raw.githubusercontent.com/stanlee321/elecciones2019-bolivia-microsoft-azure-udacity-project/master/VOTES_COUNTER/counted_votes_collage.png" /></div>
 
