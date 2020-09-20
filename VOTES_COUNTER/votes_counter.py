@@ -61,7 +61,7 @@ class VotesCounter(ImageHanlder):
 
         self.ids = partidos + partidos_d   + otros + otros_d
         
-        self.base_path = "results/"
+        self.base_path = "results_votes/"
         
         self.all_names_dict = {**self.name_maping, **self.name_maping_results}
 
@@ -222,9 +222,9 @@ class VotesCounter(ImageHanlder):
                         
                         if self.cut_numbers:
                             # Path where save the digit numbers
-                            os.makedirs("results/numbers/", exist_ok=True)
+                            os.makedirs("results_votes/numbers/", exist_ok=True)
 
-                            full_path = f"results/numbers/{k}-{i}-{filename_root}.jpg"
+                            full_path = f"results_votes/numbers/{k}-{i}-{filename_root}.jpg"
 
                             # Save letter image
                             cv2.imwrite(full_path, letter)
@@ -284,8 +284,8 @@ class VotesCounter(ImageHanlder):
                 # Write the acta with the number of results drawed on it.
             if self.draw_results:
 
-                os.makedirs("results/counts", exist_ok=True)
-                cv2.imwrite(f"results/counts/{filename}", cont_img)
+                os.makedirs("results_votes/counts", exist_ok=True)
+                cv2.imwrite(f"results_votes/counts/{filename}", cont_img)
                 
             # except Exception as e:
             #     filename = i_path.split("/")[-1]
@@ -298,7 +298,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Actas de mesa to counts')
 
-    parser.add_argument('--data_path', type=str, default="actas/images/", help='Where is your jpg image data. absolute path')
+    parser.add_argument('--data_path', type=str, default="../images/", help='Where is your jpg image data. absolute path')
     parser.add_argument('--draw_results', type=bool,default=True, help='Input dir for videos')
     
     

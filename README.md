@@ -116,9 +116,9 @@ We explore the possibility to create other datasets by the side only of the digi
 
 
 
-<div style="text-align:center"><img src ="https://raw.githubusercontent.com/stanlee321/elecciones2019-bolivia-microsoft-azure-udacity-project/master/VOTES_COUNTER/results/counts/00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg" /></div>
+<div style="text-align:center"><img src ="https://raw.githubusercontent.com/stanlee321/elecciones2019-bolivia-microsoft-azure-udacity-project/master/VOTES_COUNTER/results_votes/counts/00c354f2-f7ce-11e9-95e8-c8ff28027534.jpg" /></div>
 
-And the log for the count into the `VOTES_COUNTER/results/results_log.txt`
+And the log for the count into the `VOTES_COUNTER/results_votes/results_log.txt`
 
 ```csv
 image,count_value, user_id
